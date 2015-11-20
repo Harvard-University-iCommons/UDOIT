@@ -202,6 +202,11 @@ class OAuthRequest {
     $scheme = (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != "on")
               ? 'http'
               : 'https';
+
+    // Adding for compatibility with SSL termination on Amazon ELB - EK 11/20/2015
+    if(!empty($_SERVER['HTTP_X_FORWARDED_PROTO']))
+        $scheme = $_SERVER['HTTP_X_FORWARDED_PROTO'];
+
     $port = "";
     if ( $_SERVER['SERVER_PORT'] != "80" && $_SERVER['SERVER_PORT'] != "443" &&
         strpos(':', $_SERVER['HTTP_HOST']) < 0 ) {
