@@ -65,9 +65,12 @@ $reports = $sth->fetchAll();
 		</thead>
 
 		<tbody>
-			<?php foreach ($reports as $report): ?>
+			<?php foreach ($reports as $report):
+					$testDateTime = new DateTime($report['date_run'], new DateTimeZone('UTC'));
+					$testDateTime->setTimeZone(new DateTimeZone('America/New_York'));
+			 ?>
 				<tr id="<?= $report['id']; ?>">
-					<td><?= $report['date_run']; ?></td>
+					<td><?= $testDateTime->format("Y-m-d H:i:s"); ?></td>
 					<td><?= $report['errors']; ?></td>
 					<td><?= $report['suggestions']; ?></td>
 				</tr>
