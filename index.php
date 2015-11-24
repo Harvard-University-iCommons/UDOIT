@@ -68,7 +68,7 @@ if ($_SESSION['valid'] === false) {
 $redirect = true;
 
 // Establish base_url given by canvas API
-$base_url = 'https://'.$_POST['custom_canvas_api_domain'].'/';
+//$base_url = 'https://'.$_POST['custom_canvas_api_domain'].'/';
 
 // Pull the API key from the database
 $dsn = "mysql:dbname=$db_name;host=$db_host";
