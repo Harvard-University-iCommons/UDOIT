@@ -70,7 +70,7 @@ $reports = $sth->fetchAll();
 					$testDateTime->setTimeZone(new DateTimeZone('America/New_York'));
 			 ?>
 				<tr id="<?= $report['id']; ?>">
-					<td><?= $testDateTime->format("Y-m-d H:i:s"); ?></td>
+					<td><?= $testDateTime->format("Y-m-d h:i:s A T"); ?></td>
 					<td><?= $report['errors']; ?></td>
 					<td><?= $report['suggestions']; ?></td>
 				</tr>
